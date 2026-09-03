@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>法考电子法条（本地版）</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app" id="app">
+    <header class="app__top">
+      <div class="app__drag">
+        <span class="app__brand">法律法规汇编</span>
+        <span class="app__brand-sub">· 法考主观题本地查询</span>
+      </div>
+      <div class="app__toolbar">
+        <button class="iconbtn" id="btn-max" title="最大化 / 还原" aria-label="最大化">
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M2 2h12v12H2z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 5h6v6H5z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="app__body">
+      <aside class="app__left" id="left">
+        <div class="navbar">
+          <button class="navbar__back" id="btn-nav-back" title="返回" aria-label="返回上级">
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="navbar__title">章节导航</span>
+          <span class="navbar__crumb" id="crumb"></span>
+        </div>
+
+        <div class="search">
+          <input
+            id="search-input"
+            class="search__input"
+            type="search"
+            placeholder="搜索标题关键字（空格分词，回车确认）"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="search__btn" id="btn-search" title="搜索" aria-label="搜索">
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m11 11 3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </button>
+          <button class="search__btn search__btn--ghost" id="btn-prev" title="上一项" aria-label="上一命中">
+            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M10 12 5 8l5-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="search__btn search__btn--ghost" id="btn-next" title="下一项" aria-label="下一命中">
+            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M6 4l5 4-5 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <div class="list" id="list" role="tree" aria-label="法规章节"></div>
+      </aside>
+
+      <div class="resizer" id="resizer" role="separator" aria-orientation="vertical" tabindex="0"></div>
+
+      <section class="app__right" id="right" tabindex="0">
+        <div class="empty" id="empty">
+          <div class="empty__title">从左侧选择一个法或章节开始</div>
+          <div class="empty__hint">提示：搜索框只匹配标题（去空白、多词 AND），右侧会高亮命中位置。<br />正式开卷考试时可直接在浏览器内 <kbd>Ctrl/Cmd</kbd> + <kbd>F</kbd> 在正文中二次精确定位。</div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="./law-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
