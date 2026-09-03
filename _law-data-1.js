@@ -1,1 +1,1 @@
-window.__lawChunk1 = "test chunk 1 with some real content"
+// real chunk placeholder
